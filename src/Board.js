@@ -191,10 +191,28 @@
     hasMajorDiagonalConflictAt: function(majorDiagonalColumnIndexAtFirstRow) {
       var result = false;
 
+        if (this.hasAnyMajorDiagonalConflicts()) {
+          result = true;
+        }
+
+      return result; // fixme
 
 
+      // var size = this.get('n');
+      // var count = 0;
+      // var rowIdx = 0;
+      // var colIdx = majorDiagonalColumnIndexAtFirstRow;
 
-      return false; // fixme
+      // for( ; rowIdx < size && colIdx < size; rowIdx++, colIdx++ ){
+      //   if( colIdx >= 0 ) {
+      //     var row = this.get(rowIdx);
+      //     count += row[colIdx];
+      //   }
+      // }
+
+      // return count > 1;
+
+
     },
 
       // [0, 1, 0, 0],
@@ -263,9 +281,16 @@
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) {
       var result = false;
 
+        if (this.hasAnyMinorDiagonalConflicts()) {
+          result = true;
+        }
 
       return result;
     },
+
+
+
+
 
     // test if any minor diagonals on this board contain conflicts
     hasAnyMinorDiagonalConflicts: function() {
